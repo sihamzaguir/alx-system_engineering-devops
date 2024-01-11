@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# install a new web sever and enable the site
-apt-get install -y apache2
-cp /usr/share/nginx/index.html /var/www/html
-service apache2 restart
+# Configures an Nginx server to listen on port 80.
+ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+service nginx start
+kill "$(pgrep 'nginx' | head -1)"
